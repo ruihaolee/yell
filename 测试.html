@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script type="text/javascript" src='http://libs.baidu.com/jquery/1.9.0/jquery.js'></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			jQuery.ajax({
+				type: 'get',
+				url: 'http://api.jisuapi.com/tv/query?appkey=9f7ee696768c85e6&tvid=1206&date=2015-08-09',
+				dataType: 'jsonP',
+				jsonPCallback: 'expressId',
+				success: successFun
+			});
+		});
+		function expressId(){
+			console.log(arguments[0]);
+		}
+		function successFun(){
+			console.log(arguments[0]);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

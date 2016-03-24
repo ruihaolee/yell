@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html manifest='text.manifest'>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+	<script type="text/javascript" src="Concurrent.Thread.js"></script>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js">
+	</script>
+	<script type="text/javascript" src="liruihaoHY.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		#header{
+			width: 100%;
+			height: 160px;
+			border: 1px #575E66 solid;
+		}
+		.inquireBox{
+			width: 9%;
+			height: 115px;
+			float: left;
+			left: 7%;
+			margin-right: 10%;
+			top: 20px;
+			border: 1px #A0A0BF solid;
+			border-radius: 10px;
+			cursor: pointer;
+			font-size: 16px;
+			color: #575E66;
+			position: relative;
+			transition: border-color 1s;
+			text-align: center;
+			font-weight: bold;
+		}
+		.picText{
+			position: relative;
+		}
+		.inquireBox:hover{
+			border:1px #5DC4DE solid;
+		}
+		.inquireBox img{
+			width: 72px;
+			height: 72px;
+			transition: width 1s,height 1s;
+		}
+		.inquireBox:hover img{
+			width: 90px;
+			height: 90px;
+		}
+		#Blueline{
+			width: 9%;
+			height: 10px;
+			background-color: #1AB2F2;
+			position: absolute;
+			border-radius: 100px;
+		}
+		#container{
+			width: 70%;
+			height: 900px;
+			background: url(13.jpg);
+			background-size: 100% 900px;
+			background-repeat: no-repeat;
+			position: relative;
+			left: 15%;
+		}
+		#allBox{
+			position: relative;
+			width: 100%;
+			height: 230px;
+		}
+		#userData{
+			position: absolute;
+			width: 100%;
+			height: 670px;
+			top: 230px;
+			font-size: 15px;
+			font-weight: bold;
+			color: #666;
+			/*left: 15%;*/
+			text-align: center;
+		}
+		.thisBody{
+			width: 100%;
+			height: 230px;
+			position:absolute;
+			z-index: 1;
+			opacity: 0;
+		}
+		.question{
+			font-size: 16px;
+			font-weight: bold;
+			position: relative;
+			left: 40%;
+		}
+		input[type="text"]{
+			width: 15%;
+			height: 25px;
+			border: 1px #24ACE4 solid;
+		}
+		.question div{
+			padding: 10px;
+		}
+		h1{
+			margin-left: 2%;
+		}
+		.find{
+			z-index: 100;
+			cursor: pointer;
+			width: 4%;
+			height: 20%;
+			position: relative;
+			left: 55%;
+		}
+		.find:hover img{
+			transform:rotateY(360deg);
+		}
+		.find img{
+			width: 100%;
+			height: 100%;
+			transition:transform 2s;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="header">
+			<div class="inquireBox" id="train">
+					<div><img src="train.png"></img></div>
+					<div class="picText">火车</div>
+			</div>
+			<div class="inquireBox" id="shouji">
+					<div><img src="shouji.png"></img></div>
+					<div class="picText">手机归属地</div>	
+			</div>
+			<div class="inquireBox" id="tv">
+					<div><img src="tv.png"></img></div>
+					<div class="picText">电视节目</div>
+			</div>
+			<div class="inquireBox" id="idcard">
+					<div><img src="idcard.png"></img></div>
+					<div class="picText">身份证</div>
+			</div>
+			<div class="inquireBox" id="express">
+			 		<div><img src="express.png"></img></div>
+					<div class="picText">快递</div>	
+			</div>
+			<div id="Blueline"></div>
+		</div>
+		<div id="container">
+			<div id="allBox">
+				<div id="train_body" class="thisBody">
+					<div class="question">
+						<h1>火车车次查询</h1>
+						<div>起始地:<input type="text"></input></div>
+						<div>目的地:<input type="text"></input></div>
+						<div>
+							是否包含高铁:是:<input type="radio" name="GT" value="1"></input>
+							否: <input type="radio" name="GT" value='0'></input>
+						</div>
+					</div>
+					<div class="find">
+							<img src="find.png"></img>
+					</div>	
+				</div>
+				<div id="shouji_body" class="thisBody">
+					<div class="question">
+						<h1>手机归属地查询</h1>
+						<div>手机号:<input type="text"></input></div>
+					</div>
+					<div class="find">
+						<img src="find.png"></img>
+					</div>
+				</div>
+				<div id="tv_body" class="thisBody">
+					<div class="question">
+						<h1>电视节目查询</h1>
+						<div>电视频道ID:<input type="text"></input></div>
+						<div>日期:<input type="text">(例如 2015-10-19)</input></div>
+					</div>	
+					<div class="find">
+						<img src="find.png"></img>
+					</div>		
+				</div>
+				<div id="idcard_body" class="thisBody">
+					<div class="question">
+						<h1>身份证查询</h1>
+						<div>身份证号:<input type="text"></input></div>
+					</div>
+					<div class="find">
+						<img src="find.png"></img>
+					</div>
+				</div>
+				<div id="express_body" class="thisBody">
+					<div class="question">
+						<h1>快递查询</h1>
+						<div>快递公司:<input type="text"></input></div>
+						<div>快递单号:<input type="text"></input></div>
+					</div>
+					<div class="find">
+						<img src="find.png"></img>
+					</div>
+				</div>
+			</div>
+			<div id="userData"></div>
+		</div>
+	</div>
+</body>
+</html>
